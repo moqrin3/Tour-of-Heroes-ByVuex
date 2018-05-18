@@ -16,7 +16,10 @@ const mutations = {
     state.messages.push("HeroService: updated hero id=" + id)
   },
   'PUSH_DELETE_HERO_MESSAGE_WITH_ID'(state, id) {
-    state.messages.push("HeroService: deleted  hero id=" + id)
+    state.messages.push("HeroService: deleted hero id=" + id)
+  },
+  'PUSH_SEARCH_HEROES_MESSAGE'(state, searchWord) {
+    state.messages.push("HeroService: deleted hero id=" + '"' + searchWord + '"')
   },
   'CLEAR_MESSAGE'(state) {
     state.messages = []
@@ -36,8 +39,11 @@ const actions = {
   pushUpdateHeroMessageWithId: ({commit}, heroId) => {
     commit('PUSH_UPDATE_HERO_MESSAGE_WITH_ID', heroId);
   },
-  'pushDeleteHeroMessageWithId': ({commit}, heroId) => {
+  pushDeleteHeroMessageWithId: ({commit}, heroId) => {
     commit('PUSH_DELETE_HERO_MESSAGE_WITH_ID', heroId);
+  },
+  pushSearchHeroesMessage: ({commit}, searchWord) => {
+    commit('PUSH_SEARCH_HEROES_MESSAGE', searchWord);
   },
   clearMessages: ({commit}) => {
     commit('CLEAR_MESSAGE');

@@ -26,6 +26,8 @@ const mutations = {
   'DELETE_HERO'(state, heroId) {
     const record = state.heroes.find(hero => hero.id == heroId);
     state.heroes.splice(state.heroes.indexOf(record), 1);
+  },
+  'SEARCH_HERO'(state, heroName) {
   }
 }
 
@@ -41,7 +43,10 @@ const actions = {
   },
   deleteHero({commit}, heroId) {
     commit('DELETE_HERO', heroId);
-  }
+  },
+  searchHero({commit}, heroName) {
+    commit('SEARCH_HERO', heroName);
+  },
 };
 
 const getters = {
